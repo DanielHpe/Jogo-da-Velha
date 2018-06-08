@@ -387,206 +387,36 @@ public class Jogo extends javax.swing.JFrame {
         
         contador++;
         
-        // LINHA 1
-        if (!fimDeJogo(tabuleiro[0][0], tabuleiro[0][1], tabuleiro[0][2])) {
-            if ((tentaVitoria(tabuleiro[0][0], tabuleiro[0][1], tabuleiro[0][2])) && (!jaJogou)) {
-                if (tabuleiro[0][0].equals("K")) {
-                    realizaJogada(0, 0);
-                } else if (tabuleiro[0][1].equals("K")) {
-                    realizaJogada(0, 1);
-                } else if (tabuleiro[0][2].equals("K")) {
-                    realizaJogada(0, 2);
-                }
-                fimDeJogo(tabuleiro[0][0], tabuleiro[0][1], tabuleiro[0][2]);
-            }
-            if ((bloqueiaOponente(tabuleiro[0][0], tabuleiro[0][1], tabuleiro[0][2])) && (!jaJogou)) {
-                if (tabuleiro[0][0].equals("K")) {
-                    realizaJogada(0, 0);
-                } else if (tabuleiro[0][1].equals("K")) {
-                    realizaJogada(0, 1);
-                } else if (tabuleiro[0][2].equals("K")) {
-                    realizaJogada(0, 2);
-                }
-            }
-        } else {
-            FimDeJogo = true;
-        }
+        // VITÓRIAS
+        // LINHAS
+        FimDeJogo = tentaVitoriaLinha(0);
+        FimDeJogo = tentaVitoriaLinha(1);
+        FimDeJogo = tentaVitoriaLinha(2);
         
-        // LINHA 2
-        if (!fimDeJogo(tabuleiro[1][0], tabuleiro[1][1], tabuleiro[1][2])) {
-            if ((tentaVitoria(tabuleiro[1][0], tabuleiro[1][1], tabuleiro[1][2])) && (!jaJogou)) {
-                if (tabuleiro[1][0].equals("K")) {
-                    realizaJogada(1, 0);
-                } else if (tabuleiro[1][1].equals("K")) {
-                    realizaJogada(1, 1);
-                } else if (tabuleiro[1][2].equals("K")) {
-                    realizaJogada(1, 2);
-                }
-                fimDeJogo(tabuleiro[1][0], tabuleiro[1][1], tabuleiro[1][2]);
-            }
-            if ((bloqueiaOponente(tabuleiro[1][0], tabuleiro[1][1], tabuleiro[1][2])) && (!jaJogou)) {
-                if (tabuleiro[1][0].equals("K")) {
-                    realizaJogada(1, 0);
-                } else if (tabuleiro[1][1].equals("K")) {
-                    realizaJogada(1, 1);
-                } else if (tabuleiro[1][2].equals("K")) {
-                    realizaJogada(1, 2);
-                }
-            }
-        } else {
-            FimDeJogo = true;
-        }
+        // COLUNAS
+        FimDeJogo = tentaVitoriaColuna(0);
+        FimDeJogo = tentaVitoriaColuna(1);
+        FimDeJogo = tentaVitoriaColuna(2);
         
-        // LINHA 3
-        if (!fimDeJogo(tabuleiro[2][0], tabuleiro[2][1], tabuleiro[2][2])) {
-            if ((tentaVitoria(tabuleiro[2][0], tabuleiro[2][1], tabuleiro[2][2])) && (!jaJogou)) {
-                if (tabuleiro[2][0].equals("K")) {
-                    realizaJogada(2, 0);
-                } else if (tabuleiro[2][1].equals("K")) {
-                    realizaJogada(2, 1);
-                } else if (tabuleiro[2][2].equals("K")) {
-                    realizaJogada(2, 2);
-                }
-                fimDeJogo(tabuleiro[2][0], tabuleiro[2][1], tabuleiro[2][2]);
-            }
-            if ((bloqueiaOponente(tabuleiro[2][0], tabuleiro[2][1], tabuleiro[2][2])) && (!jaJogou)) {
-                if (tabuleiro[2][0].equals("K")) {
-                    realizaJogada(2, 0);
-                } else if (tabuleiro[2][1].equals("K")) {
-                    realizaJogada(2, 1);
-                } else if (tabuleiro[2][2].equals("K")) {
-                    realizaJogada(2, 2);
-                }
-            }
-        } else {
-            FimDeJogo = true;
-        }
+        // DIAGONAIS
+        FimDeJogo = tentaVitoriaDiagonal(true);
+        FimDeJogo = tentaVitoriaDiagonal(false);
         
-        // COLUNA 1
-        if (!fimDeJogo(tabuleiro[0][0], tabuleiro[1][0], tabuleiro[2][0])) {
-            if ((tentaVitoria(tabuleiro[0][0], tabuleiro[1][0], tabuleiro[2][0])) && (!jaJogou)) {
-                if (tabuleiro[0][0].equals("K")) {
-                    realizaJogada(0, 0);
-                } else if (tabuleiro[1][0].equals("K")) {
-                    realizaJogada(1, 0);
-                } else if (tabuleiro[2][0].equals("K")) {
-                    realizaJogada(2, 0);
-                }
-                fimDeJogo(tabuleiro[0][0], tabuleiro[1][0], tabuleiro[2][0]);
-            }
-            if ((bloqueiaOponente(tabuleiro[0][0], tabuleiro[1][0], tabuleiro[2][0])) && (!jaJogou)) {
-                if (tabuleiro[0][0].equals("K")) {
-                    realizaJogada(0, 0);
-                } else if (tabuleiro[1][0].equals("K")) {
-                    realizaJogada(1, 0);
-                } else if (tabuleiro[2][0].equals("K")) {
-                    realizaJogada(2, 0);
-                }
-            }
-        } else {
-            FimDeJogo = true;
-        }       
-                
-        // COLUNA 2
-        if (!fimDeJogo(tabuleiro[0][1], tabuleiro[1][1], tabuleiro[2][1])) {
-            if ((tentaVitoria(tabuleiro[0][1], tabuleiro[1][1], tabuleiro[2][1])) && (!jaJogou)) {
-                if (tabuleiro[0][1].equals("K")) {
-                    realizaJogada(0, 1);
-                } else if (tabuleiro[1][1].equals("K")) {
-                    realizaJogada(1, 1);
-                } else if (tabuleiro[2][1].equals("K")) {
-                    realizaJogada(2, 1);
-                }
-                fimDeJogo(tabuleiro[0][1], tabuleiro[1][1], tabuleiro[2][1]);
-            }
-            if ((bloqueiaOponente(tabuleiro[0][1], tabuleiro[1][1], tabuleiro[2][1])) && (!jaJogou)) {
-                if (tabuleiro[0][1].equals("K")) {
-                    realizaJogada(0, 1);
-                } else if (tabuleiro[1][1].equals("K")) {
-                    realizaJogada(1, 1);
-                } else if (tabuleiro[1][2].equals("K")) {
-                    realizaJogada(2, 1);
-                }
-            }
-        } else {
-            FimDeJogo = true;
-        }
+        // BLOQUEIOS
+        // LINHAS
+        FimDeJogo = tentaBloqueioLinha(0);
+        FimDeJogo = tentaBloqueioLinha(1);
+        FimDeJogo = tentaBloqueioLinha(2);
         
-        // COLUNA 3
-        if (!fimDeJogo(tabuleiro[0][2], tabuleiro[1][2], tabuleiro[2][2])) {
-            if ((tentaVitoria(tabuleiro[0][2], tabuleiro[1][2], tabuleiro[2][2])) && (!jaJogou)) {
-                if (tabuleiro[0][2].equals("K")) {
-                    realizaJogada(0, 2);
-                } else if (tabuleiro[1][2].equals("K")) {
-                    realizaJogada(1, 2);
-                } else if (tabuleiro[2][2].equals("K")) {
-                    realizaJogada(2, 2);
-                }
-                fimDeJogo(tabuleiro[0][2], tabuleiro[1][2], tabuleiro[2][2]);
-            }
-            if ((bloqueiaOponente(tabuleiro[0][2], tabuleiro[1][2], tabuleiro[2][2])) && (!jaJogou)) {
-                if (tabuleiro[0][2].equals("K")) {
-                    realizaJogada(0, 2);
-                } else if (tabuleiro[1][2].equals("K")) {
-                    realizaJogada(1, 2);
-                } else if (tabuleiro[2][2].equals("K")) {
-                    realizaJogada(2, 2);
-                }
-            }
-        } else {
-            FimDeJogo = true;
-        }
+        // COLUNAS
+        FimDeJogo = tentaBloqueioColuna(0);
+        FimDeJogo = tentaBloqueioColuna(1);
+        FimDeJogo = tentaBloqueioColuna(2);
         
+        // DIAGONAIS
+        FimDeJogo = tentaBloqueioDiagonal(true);
+        FimDeJogo = tentaBloqueioDiagonal(false);
         
-        // VERIFICA DIAGONAL PRINCIPAL 
-        if (!fimDeJogo(tabuleiro[0][0], tabuleiro[1][1], tabuleiro[2][2])) {
-            if ((tentaVitoria(tabuleiro[0][0], tabuleiro[1][1], tabuleiro[2][2])) && (!jaJogou)) {
-                if (tabuleiro[0][0].equals("K")) {
-                    realizaJogada(0, 0);
-                } else if (tabuleiro[1][1].equals("K")) {
-                    realizaJogada(1, 1);
-                } else if (tabuleiro[2][2].equals("K")) {
-                    realizaJogada(2, 2);
-                }
-                fimDeJogo(tabuleiro[0][0], tabuleiro[1][1], tabuleiro[2][2]);
-            }
-            if ((bloqueiaOponente(tabuleiro[0][0], tabuleiro[1][1], tabuleiro[2][2])) && (!jaJogou)) {
-                if (tabuleiro[0][0].equals("K")) {
-                    realizaJogada(0, 0);
-                } else if (tabuleiro[1][1].equals("K")) {
-                    realizaJogada(1, 1);
-                } else if (tabuleiro[2][2].equals("K")) {
-                    realizaJogada(2, 2);
-                }
-            }
-        } else {
-            FimDeJogo = true;
-        }
-
-        // VERIFICA DIAGONAL SECUNDARIA
-        if (!fimDeJogo(tabuleiro[0][2], tabuleiro[1][1], tabuleiro[2][0])) {
-            if ((tentaVitoria(tabuleiro[0][2], tabuleiro[1][1], tabuleiro[2][0])) && (!jaJogou)) {
-                if (tabuleiro[0][2].equals("K")) {
-                    realizaJogada(0, 2);
-                } else if (tabuleiro[1][1].equals("K")) {
-                    realizaJogada(1, 1);
-                } else if (tabuleiro[2][0].equals("K")) {
-                    realizaJogada(2, 0);
-                }
-                fimDeJogo(tabuleiro[0][2], tabuleiro[1][1], tabuleiro[2][0]);
-            }
-            if ((bloqueiaOponente(tabuleiro[0][2], tabuleiro[1][1], tabuleiro[2][0])) && (!jaJogou)) {
-                if (tabuleiro[0][2].equals("K")) {
-                    realizaJogada(0, 2);
-                } else if (tabuleiro[1][1].equals("K")) {
-                    realizaJogada(1, 1);
-                } else if (tabuleiro[2][0].equals("K")) {
-                    realizaJogada(2, 0);
-                }
-            }
-        } else {
-            FimDeJogo = true;
-        }
         
         if (!FimDeJogo) {
             if (verificaVelha()) {
@@ -601,7 +431,150 @@ public class Jogo extends javax.swing.JFrame {
 
     }
 
-    /**
+    private boolean tentaVitoriaDiagonal(boolean isDiagonalPrimaria) {
+    	if (isDiagonalPrimaria) {
+    		if (!fimDeJogo(tabuleiro[0][0], tabuleiro[1][1], tabuleiro[2][2])) {
+                if ((verificaVitoria(tabuleiro[0][0], tabuleiro[1][1], tabuleiro[2][2])) && (!jaJogou)) {
+                    if (tabuleiro[0][0].equals("K")) {
+                        realizaJogada(0, 0);
+                    } else if (tabuleiro[1][1].equals("K")) {
+                        realizaJogada(1, 1);
+                    } else if (tabuleiro[2][2].equals("K")) {
+                        realizaJogada(2, 2);
+                    }
+                    fimDeJogo(tabuleiro[0][0], tabuleiro[1][1], tabuleiro[2][2]);
+                }
+            } else {
+                return true;
+            }
+    	} else {
+    		if (!fimDeJogo(tabuleiro[0][2], tabuleiro[1][1], tabuleiro[2][0])) {
+                if ((verificaVitoria(tabuleiro[0][2], tabuleiro[1][1], tabuleiro[2][0])) && (!jaJogou)) {
+                    if (tabuleiro[0][2].equals("K")) {
+                        realizaJogada(0, 2);
+                    } else if (tabuleiro[1][1].equals("K")) {
+                        realizaJogada(1, 1);
+                    } else if (tabuleiro[2][0].equals("K")) {
+                        realizaJogada(2, 0);
+                    }
+                    fimDeJogo(tabuleiro[0][2], tabuleiro[1][1], tabuleiro[2][0]);
+                }
+            } else {
+                return true;
+            }
+    	}
+    	
+		return false;
+	}
+
+	private boolean tentaBloqueioDiagonal(boolean isDiagonalPrimaria) {
+		if (isDiagonalPrimaria) {
+    		if (!fimDeJogo(tabuleiro[0][0], tabuleiro[1][1], tabuleiro[2][2])) {
+                if ((bloqueiaOponente(tabuleiro[0][0], tabuleiro[1][1], tabuleiro[2][2])) && (!jaJogou)) {
+                    if (tabuleiro[0][0].equals("K")) {
+                        realizaJogada(0, 0);
+                    } else if (tabuleiro[1][1].equals("K")) {
+                        realizaJogada(1, 1);
+                    } else if (tabuleiro[2][2].equals("K")) {
+                        realizaJogada(2, 2);
+                    }
+                }
+            } else {
+                return true;
+            }
+    	} else {
+    		if (!fimDeJogo(tabuleiro[0][2], tabuleiro[1][1], tabuleiro[2][0])) {
+                if ((bloqueiaOponente(tabuleiro[0][2], tabuleiro[1][1], tabuleiro[2][0])) && (!jaJogou)) {
+                    if (tabuleiro[0][2].equals("K")) {
+                        realizaJogada(0, 2);
+                    } else if (tabuleiro[1][1].equals("K")) {
+                        realizaJogada(1, 1);
+                    } else if (tabuleiro[2][0].equals("K")) {
+                        realizaJogada(2, 0);
+                    }
+                }
+            } else {
+                return true;
+            }
+    	}
+		return false;
+	}
+
+	private boolean tentaBloqueioColuna(int numColuna) {
+		if (!fimDeJogo(tabuleiro[0][numColuna], tabuleiro[1][numColuna], tabuleiro[2][numColuna])) {
+            if ((bloqueiaOponente(tabuleiro[0][numColuna], tabuleiro[1][numColuna], tabuleiro[2][numColuna])) && (!jaJogou)) {
+                if (tabuleiro[0][numColuna].equals("K")) {
+                    realizaJogada(0, numColuna);
+                } else if (tabuleiro[1][numColuna].equals("K")) {
+                    realizaJogada(1, numColuna);
+                } else if (tabuleiro[2][numColuna].equals("K")) {
+                    realizaJogada(2, numColuna);
+                }
+            }
+        } else {
+            return true;
+        }
+		
+		return false;
+	}
+
+	private boolean tentaBloqueioLinha(int numLinha) {
+		if (!fimDeJogo(tabuleiro[numLinha][0], tabuleiro[numLinha][1], tabuleiro[numLinha][2])) {
+            if ((bloqueiaOponente(tabuleiro[numLinha][0], tabuleiro[numLinha][1], tabuleiro[numLinha][2])) && (!jaJogou)) {
+                if (tabuleiro[numLinha][0].equals("K")) {
+                    realizaJogada(numLinha, 0);
+                } else if (tabuleiro[numLinha][1].equals("K")) {
+                    realizaJogada(numLinha, 1);
+                } else if (tabuleiro[numLinha][2].equals("K")) {
+                    realizaJogada(numLinha, 2);
+                }
+            }
+        } else {
+            return true;
+        }
+		
+		return false;
+	}
+
+	private boolean tentaVitoriaColuna(int numColuna) {
+		if (!fimDeJogo(tabuleiro[0][numColuna], tabuleiro[1][numColuna], tabuleiro[2][numColuna])) {
+            if ((verificaVitoria(tabuleiro[0][numColuna], tabuleiro[1][numColuna], tabuleiro[2][numColuna])) && (!jaJogou)) {
+                if (tabuleiro[0][numColuna].equals("K")) {
+                    realizaJogada(0, numColuna);
+                } else if (tabuleiro[1][numColuna].equals("K")) {
+                    realizaJogada(1, numColuna);
+                } else if (tabuleiro[2][numColuna].equals("K")) {
+                    realizaJogada(2, numColuna);
+                }
+                fimDeJogo(tabuleiro[0][numColuna], tabuleiro[1][numColuna], tabuleiro[2][numColuna]);
+            }
+        } else {
+            return true;
+        }
+		
+		return false;
+	}
+
+	private boolean tentaVitoriaLinha(int numLinha) {
+		if (!fimDeJogo(tabuleiro[numLinha][0], tabuleiro[numLinha][1], tabuleiro[numLinha][2])) {
+            if ((verificaVitoria(tabuleiro[numLinha][0], tabuleiro[numLinha][1], tabuleiro[numLinha][2])) && (!jaJogou)) {
+                if (tabuleiro[numLinha][0].equals("K")) {
+                    realizaJogada(numLinha, 0);
+                } else if (tabuleiro[0][1].equals("K")) {
+                    realizaJogada(numLinha, 1);
+                } else if (tabuleiro[0][2].equals("K")) {
+                    realizaJogada(numLinha, 2);
+                }
+                fimDeJogo(tabuleiro[numLinha][0], tabuleiro[numLinha][1], tabuleiro[numLinha][2]);
+            }
+        } else {
+            return true;
+        }
+		
+		return false;
+	}
+
+	/**
      * Bloqueia o tabuleiro no fim do jogo
      *
      * Impede que o usuario continue jogando se o jogo acabar Fazendo com que
@@ -684,15 +657,9 @@ public class Jogo extends javax.swing.JFrame {
         }
     }
     
-    private boolean tentaVitoria(String campo1, String campo2, String campo3) {
+    private boolean verificaVitoria(String campo1, String campo2, String campo3) {
         String jogada = campo1 + campo2 + campo3;
         return jogada.contains(CPUType + CPUType) || jogada.equals(CPUType + "K" + CPUType);
-    }
-    
-    private Boolean bloqueiaOponente(String campo1, String campo2, String campo3) {
-        String jogada = campo1 + campo2 + campo3;
-        System.out.println(jogada);
-        return jogada.contains(UserType + UserType) || jogada.equals(UserType + "K" + UserType);
     }
     
     /**
@@ -707,7 +674,11 @@ public class Jogo extends javax.swing.JFrame {
      * usuario
      *
      */
-
+    private Boolean bloqueiaOponente(String campo1, String campo2, String campo3) {
+        String jogada = campo1 + campo2 + campo3;
+        System.out.println(jogada);
+        return jogada.contains(UserType + UserType) || jogada.equals(UserType + "K" + UserType);
+    }
 
     /**
      * Realiza jogada da CPU em linha/coluna especifica Preenche o tabuleiro na
